@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-example-web-service-gin
+  labels:
+    app: example-web-service-gin
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: example-web-service-gin
+  type: ClusterIP

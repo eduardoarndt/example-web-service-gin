@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-web-service-gin-deployment
+  labels:
+    app: example-web-service-gin
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-web-service-gin
+  template:
+    metadata:
+      labels:
+        app: example-web-service-gin
+    spec:
+      containers:
+        - name: example-web-service-gin
+          image: eduardoarndt/example-web-service-gin
+          ports:
+            - containerPort: 8080

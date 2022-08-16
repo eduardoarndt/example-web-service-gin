@@ -1,0 +1,18 @@
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: apirule-example-web-service-gin
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods:
+        - GET
+        - POST
+      accessStrategies:
+        - config: {}
+          handler: allow
+  service:
+    name: service-example-web-service-gin
+    host: example-web-service-gin
+    port: 8080
